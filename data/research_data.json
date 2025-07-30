@@ -1,0 +1,99 @@
+{
+  "vintageverb": {
+    "mix": {
+      "type": "numeric",
+      "range": [0, 1],
+      "default": 0.5,
+      "unit": "%"
+    },
+    "predelay": {
+      "type": "numeric",
+      "range": [0, 200],
+      "unit": "ms"
+    },
+    "decay": {
+      "type": "string_numeric",
+      "format": "%.2f s",
+      "range": [0.2, 70.0],
+      "unit": "s"
+    },
+    "size": {
+      "type": "numeric",
+      "range": [0, 100],
+      "default": 50,
+      "unit": "%"
+    },
+    "attack": {
+      "type": "numeric",
+      "range": [0, 100],
+      "unit": "%"
+    },
+    "bassFreq": {
+      "type": "numeric",
+      "range": [20, 500],
+      "unit": "Hz"
+    },
+    "bassMult": {
+      "type": "numeric",
+      "range": [0.1, 4.0]
+    },
+    "highFreq": {
+      "type": "numeric",
+      "range": [1000, 20000],
+      "unit": "Hz"
+    },
+    "highShelf": {
+      "type": "numeric",
+      "range": [-24, 24],
+      "unit": "dB"
+    },
+    "earlyDiff": {
+      "type": "numeric",
+      "range": [0, 100],
+      "unit": "%"
+    },
+    "lateDiff": {
+      "type": "numeric",
+      "range": [0, 100],
+      "unit": "%"
+    },
+    "modRate": {
+      "type": "numeric",
+      "range": [0.1, 5.0],
+      "unit": "Hz"
+    },
+    "modDepth": {
+      "type": "numeric",
+      "range": [0, 100],
+      "unit": "%"
+    },
+    "reverbmode": {
+      "type": "list",
+      "valid_values": ["Concert Hall", "Plate", "Room", "Chamber", "Random Space", 
+                      "Chorus Space", "Ambience", "Bright Hall", "Sanctuary", 
+                      "Dirty Hall", "Dirty Plate", "Smooth Plate", "Smooth Room", 
+                      "Smooth Random", "Nonlin", "Chaotic Chamber", "Chaotic Hall", 
+                      "Chaotic Neutral", "Cathedral", "Palace", "Chamber1979", 
+                      "Hall1984"]
+    },
+    "colormode": {
+      "type": "list",
+      "valid_values": ["seventies", "eighties", "now"]
+    }
+  },
+  "plate": {
+    "mix": {"type": "numeric", "range": [0, 100], "unit": "%"},
+    "predelay": {"type": "numeric", "range": [0, 500], "unit": "ms"},
+    "decay": {"type": "numeric", "range": [0.5, 30], "unit": "s"},
+    "size": {"type": "numeric", "range": [0, 200], "unit": "%"},
+    "width": {"type": "numeric", "range": [0, 200], "unit": "%"},
+    "modRate": {"type": "numeric", "range": [0.05, 5], "unit": "Hz"},
+    "modDepth": {"type": "numeric", "range": [0, 100], "unit": "%"},
+    "mode": {
+      "type": "list",
+      "valid_values": ["Chrome", "Steel", "Cobalt", "Brass", "Aluminum", 
+                      "Copper", "Unobtanium", "Adamantium", "Titanium", 
+                      "Osmium", "Radium", "Lithium"]
+    }
+  }
+}

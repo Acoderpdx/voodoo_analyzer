@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.env
+
+# Virtual environments
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Project specific
+*.log
+analyzer.log
+data/discoveries/*.json
+*.wav
+*.mp3
+*.aif
+*.aiff
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+# Test outputs
+test_outputs/
+recordings/
+*_discovery.json
+*_raw_params.json
+
+# But keep these
+!data/research_data.json
+!requirements.txt
