@@ -10,7 +10,10 @@ from pathlib import Path
 import threading
 
 from core import UniversalPluginDiscovery, ParameterCategorizer, ResearchValidator, DiscoveryExporter
-from .components import ParameterInspector
+from core.pattern_learner import PatternLearner
+from core.validator_enhanced import EnhancedValidator
+from core.learning_exporter import LearningExporter
+from ui.components import ParameterInspector, LearningDashboard
 
 class PluginAnalyzerApp:
     """Main application window"""
@@ -24,6 +27,11 @@ class PluginAnalyzerApp:
         self.current_plugin_path = None
         self.discovery_results = None
         self.categorized_results = None
+        
+        # Learning system
+        self.pattern_learner = PatternLearner()
+        self.learning_exporter = LearningExporter()
+        self.all_discoveries = {}  # Store all discoveries for learning
         
         # Create UI
         self._create_menu()
@@ -47,6 +55,9 @@ class PluginAnalyzerApp:
         menubar.add_cascade(label="Tools", menu=tools_menu)
         tools_menu.add_command(label="Validate with Research", command=self.validate_discovery)
         tools_menu.add_command(label="Generate Test Matrix", command=self.generate_test_matrix)
+        tools_menu.add_separator()
+        tools_menu.add_command(label="Generate Learning Report", command=self.generate_learning_report)
+        tools_menu.add_command(label="View Learning Stats", command=self.view_learning_stats)
     
     def _create_main_layout(self):
         """Create the main application layout"""
@@ -116,13 +127,21 @@ class PluginAnalyzerApp:
         self.log_text = scrolledtext.ScrolledText(log_frame, height=20)
         self.log_text.pack(fill=tk.BOTH, expand=True, padx=5, pady=5)
         
-        # Right panel - Parameter inspector
+        # Right panel - Notebook with tabs
         right_frame = ttk.Frame(paned)
         paned.add(right_frame, weight=2)
         
-        # Parameter inspector
-        self.param_inspector = ParameterInspector(right_frame)
-        self.param_inspector.pack(fill=tk.BOTH, expand=True)
+        # Create notebook
+        self.notebook = ttk.Notebook(right_frame)
+        self.notebook.pack(fill=tk.BOTH, expand=True)
+        
+        # Parameter inspector tab
+        self.param_inspector = ParameterInspector(self.notebook)
+        self.notebook.add(self.param_inspector, text="Parameter Inspector")
+        
+        # Learning dashboard tab
+        self.learning_dashboard = LearningDashboard(self.notebook)
+        self.notebook.add(self.learning_dashboard, text="Learning Progress")
         
         # Bottom status bar
         self.status_bar = ttk.Label(self.root, text="Ready", relief=tk.SUNKEN)
@@ -244,20 +263,52 @@ class PluginAnalyzerApp:
             log_callback("Starting parameter discovery...")
             self.discovery_results = discovery.discover_all()
             
+            # Apply pattern learning enhancement
+            log_callback("\nApplying learned patterns...")
+            enhanced_params = self.pattern_learner.enhance_discovery(self.discovery_results)
+            
+            # Validate parameters with enhanced validator
+            log_callback("\nValidating parameter formats...")
+            plugin = discovery.plugin
+            validator = EnhancedValidator(plugin)
+            validation_results = validator.validate_all_parameters(enhanced_params)
+            
             # Log discovery process
             for log_entry in discovery.get_discovery_log():
                 log_callback(log_entry)
             
-            # Categorize parameters
-            log_callback("\nCategorizing parameters...")
+            # Categorize parameters with intelligence
+            log_callback("\nCategorizing parameters with effect knowledge...")
             categorizer = ParameterCategorizer()
-            self.categorized_results = categorizer.categorize_parameters(self.discovery_results)
+            plugin_name = Path(self.current_plugin_path).stem
+            self.categorized_results = categorizer.categorize_with_intelligence(plugin_name, enhanced_params)
+            
+            # Learn from this discovery
+            log_callback("\nLearning from discovery...")
+            learnings = self.pattern_learner.learn_from_discovery(plugin_name, enhanced_params)
+            
+            # Store discovery for learning report
+            self.all_discoveries[plugin_name] = {
+                'parameters': enhanced_params,
+                'categorized': self.categorized_results,
+                'validation_results': validation_results,
+                'effect_type': learnings.get('effect_type'),
+                'format_requirements': validation_results.get('format_requirements', {})
+            }
+            
+            # Export individual discovery
+            export_path = self.learning_exporter.export_individual_discovery(plugin_name, self.all_discoveries[plugin_name])
+            log_callback(f"\nExported discovery to: {export_path}")
+            
+            # Update learning dashboard
+            self.root.after(0, lambda: self.learning_dashboard.update_dashboard(learnings))
             
             # Update UI
             self.root.after(0, self._discovery_complete)
             
         except Exception as e:
-            self.root.after(0, lambda: messagebox.showerror("Discovery Error", str(e)))
+            error_msg = str(e)
+            self.root.after(0, lambda: messagebox.showerror("Discovery Error", error_msg))
         finally:
             self.root.after(0, lambda: self.progress.stop())
             self.root.after(0, lambda: self.progress.pack_forget())
@@ -379,6 +430,53 @@ class PluginAnalyzerApp:
         
         messagebox.showinfo("Export Complete", f"Discovery exported to:\n{export_path}")
     
+    def generate_learning_report(self):
+        """Generate comprehensive learning report"""
+        if not self.all_discoveries:
+            messagebox.showinfo("No Data", "No plugins have been analyzed yet")
+            return
+        
+        # Generate report
+        report_path = self.learning_exporter.export_learning_report(self.all_discoveries)
+        
+        # Also generate markdown report
+        with open(report_path, 'r') as f:
+            report_data = json.load(f)
+        md_path = self.learning_exporter.create_markdown_report(report_data)
+        
+        messagebox.showinfo("Report Generated", 
+                          f"Learning report generated:\n\nJSON: {report_path}\nMarkdown: {md_path}")
+    
+    def view_learning_stats(self):
+        """View current learning statistics"""
+        stats = self.pattern_learner.get_learning_stats()
+        
+        # Create stats window
+        stats_window = tk.Toplevel(self.root)
+        stats_window.title("Learning Statistics")
+        stats_window.geometry("400x300")
+        
+        text = scrolledtext.ScrolledText(stats_window)
+        text.pack(fill=tk.BOTH, expand=True, padx=10, pady=10)
+        
+        text.insert(tk.END, "PATTERN LEARNING STATISTICS\n")
+        text.insert(tk.END, "="*40 + "\n\n")
+        
+        for key, value in stats.items():
+            formatted_key = key.replace('_', ' ').title()
+            text.insert(tk.END, f"{formatted_key}: {value}\n")
+        
+        # Add recent discoveries
+        if self.pattern_learner.learned_patterns.get('plugin_history'):
+            text.insert(tk.END, "\n\nRecent Plugin Discoveries:\n")
+            text.insert(tk.END, "-"*40 + "\n")
+            for plugin, info in list(self.pattern_learner.learned_patterns['plugin_history'].items())[-5:]:
+                text.insert(tk.END, f"• {plugin}: {info['parameter_count']} parameters\n")
+    
     def run(self):
         """Run the application"""
         self.root.mainloop()
+
+if __name__ == "__main__":
+    app = PluginAnalyzerApp()
+    app.run()

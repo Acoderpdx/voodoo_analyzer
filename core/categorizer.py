@@ -4,6 +4,9 @@ Groups parameters by function and testing needs
 """
 
 from typing import Dict, List, Any
+from pathlib import Path
+import json
+import re
 
 class ParameterCategorizer:
     """Categorize parameters by type and function"""
@@ -39,6 +42,21 @@ class ParameterCategorizer:
                 'priority': 'secondary'
             }
         }
+        self.load_effect_knowledge()
+    
+    def load_effect_knowledge(self):
+        """Load comprehensive effect parameter knowledge"""
+        knowledge_path = Path('data/effect_knowledge.json')
+        if knowledge_path.exists():
+            with open(knowledge_path, 'r') as f:
+                content = f.read()
+                # Extract JSON from the markdown file
+                json_start = content.find('{')
+                json_end = content.rfind('}') + 1
+                knowledge_data = json.loads(content[json_start:json_end])
+                self.effect_knowledge = knowledge_data['audio_effect_parameters']
+        else:
+            self.effect_knowledge = {}
     
     def categorize_parameters(self, parameters: Dict[str, Any]) -> Dict[str, Any]:
         """Categorize all parameters by function"""
@@ -133,3 +151,166 @@ class ParameterCategorizer:
             test_matrix['phase_1_core'].insert(0, 'mode_comparison')
         
         return test_matrix
+    
+    def categorize_with_intelligence(self, plugin_name: str, parameters: Dict) -> Dict:
+        """Enhanced categorization using effect knowledge"""
+        # First, try to detect effect type
+        effect_type = self._detect_plugin_type(plugin_name, parameters)
+        
+        if effect_type and '.' in effect_type:
+            # Use effect-specific categorization
+            return self._categorize_by_effect_type(effect_type, parameters)
+        else:
+            # Fall back to generic categorization
+            return self.categorize_parameters(parameters)
+    
+    def _detect_plugin_type(self, plugin_name: str, parameters: Dict) -> str:
+        """Detect plugin type from name and parameters"""
+        param_names = set(p.lower() for p in parameters.keys() if not p.startswith('_'))
+        plugin_name_lower = plugin_name.lower()
+        
+        # Check plugin name for obvious indicators
+        name_indicators = {
+            'reverb': 'time_based_effects.reverb',
+            'delay': 'time_based_effects.delay',
+            'chorus': 'modulation_effects.chorus',
+            'flanger': 'modulation_effects.flanger',
+            'phaser': 'modulation_effects.phaser',
+            'compressor': 'dynamics.compressor',
+            'limiter': 'dynamics.limiter',
+            'eq': 'frequency_effects.parametric_eq',
+            'filter': 'frequency_effects.filter',
+            'distortion': 'distortion_saturation.distortion',
+            'overdrive': 'distortion_saturation.overdrive',
+            'plate': 'time_based_effects.reverb',
+            'room': 'time_based_effects.reverb',
+            'hall': 'time_based_effects.reverb'
+        }
+        
+        for indicator, effect_type in name_indicators.items():
+            if indicator in plugin_name_lower:
+                return effect_type
+        
+        # Check against effect knowledge signatures
+        for effect_category, effects in self.effect_knowledge.items():
+            if effect_category == 'metadata':
+                continue
+            
+            for effect_type, effect_data in effects.items():
+                if 'core_parameters' in effect_data:
+                    core_params = set(p.lower() for p in effect_data['core_parameters'].keys())
+                    
+                    # Check for parameter matches including variations
+                    matches = 0
+                    for core_param in core_params:
+                        if core_param in param_names:
+                            matches += 1
+                        else:
+                            # Check naming variations
+                            param_data = effect_data['core_parameters'].get(core_param, {})
+                            if 'naming_variations' in param_data:
+                                variations = [v.lower() for v in param_data['naming_variations']]
+                                if any(var in param_names for var in variations):
+                                    matches += 1
+                    
+                    # If 70% of core parameters match, likely this effect type
+                    if matches >= len(core_params) * 0.7:
+                        return f"{effect_category}.{effect_type}"
+        
+        return None
+    
+    def _categorize_by_effect_type(self, effect_type: str, parameters: Dict) -> Dict:
+        """Categorize based on known effect type patterns"""
+        categorized = {
+            'effect_type': effect_type,
+            'categories': {},
+            'uncategorized': [],
+            'parameter_details': parameters
+        }
+        
+        # Get effect knowledge
+        effect_parts = effect_type.split('.')
+        if len(effect_parts) == 2:
+            category, subtype = effect_parts
+            if category in self.effect_knowledge and subtype in self.effect_knowledge[category]:
+                effect_data = self.effect_knowledge[category][subtype]
+                
+                # Categorize core parameters
+                if 'core_parameters' in effect_data:
+                    categorized['categories']['core'] = {
+                        'parameters': [],
+                        'priority': 'critical'
+                    }
+                    for param, data in effect_data['core_parameters'].items():
+                        # Match with discovered parameters (handle naming variations)
+                        matched = self._match_parameter(param, parameters, data.get('naming_variations', []))
+                        if matched:
+                            categorized['categories']['core']['parameters'].append(matched)
+                
+                # Categorize advanced parameters
+                if 'advanced_parameters' in effect_data:
+                    categorized['categories']['advanced'] = {
+                        'parameters': [],
+                        'priority': 'secondary'
+                    }
+                    for param, data in effect_data['advanced_parameters'].items():
+                        matched = self._match_parameter(param, parameters, data.get('naming_variations', []))
+                        if matched:
+                            categorized['categories']['advanced']['parameters'].append(matched)
+                
+                # Find uncategorized parameters
+                categorized_params = set()
+                for cat_data in categorized['categories'].values():
+                    categorized_params.update(cat_data['parameters'])
+                
+                for param in parameters:
+                    if not param.startswith('_') and param not in categorized_params:
+                        categorized['uncategorized'].append(param)
+        
+        return categorized
+    
+    def _match_parameter(self, knowledge_param: str, discovered_params: Dict, variations: List[str]) -> str:
+        """Match a knowledge parameter with discovered parameters"""
+        # Direct match (case insensitive)
+        for param in discovered_params:
+            if param.lower() == knowledge_param.lower():
+                return param
+        
+        # Check variations
+        for variation in variations:
+            for param in discovered_params:
+                if param.lower() == variation.lower():
+                    return param
+        
+        # Fuzzy matching for common patterns
+        knowledge_lower = knowledge_param.lower()
+        for param in discovered_params:
+            param_lower = param.lower()
+            # Check if one contains the other
+            if knowledge_lower in param_lower or param_lower in knowledge_lower:
+                return param
+            # Check common abbreviations
+            if self._is_abbreviation_match(knowledge_lower, param_lower):
+                return param
+        
+        return None
+    
+    def _is_abbreviation_match(self, term1: str, term2: str) -> bool:
+        """Check if terms are abbreviations of each other"""
+        abbrev_map = {
+            'freq': 'frequency',
+            'mod': 'modulation',
+            'fb': 'feedback',
+            'hpf': 'highpass',
+            'lpf': 'lowpass',
+            'bpf': 'bandpass',
+            'reso': 'resonance',
+            'amp': 'amplitude',
+            'env': 'envelope'
+        }
+        
+        for short, full in abbrev_map.items():
+            if (short in term1 and full in term2) or (short in term2 and full in term1):
+                return True
+        
+        return False

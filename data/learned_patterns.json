@@ -1,0 +1,50 @@
+{
+  "string_formats": {
+    "decay": "%.2f s"
+  },
+  "parameter_patterns": {
+    ".*attack.*": "envelope_attack",
+    ".*decay.*": "decay_time",
+    ".*freq.*": "frequency",
+    ".*mix.*": "wet_dry_mix",
+    ".*depth.*": "modulation_depth",
+    ".*rate.*": "modulation_rate",
+    ".*drive.*": "saturation_drive",
+    ".*feedback.*": "feedback",
+    ".*width.*": "stereo_width",
+    ".*gain.*": "gain"
+  },
+  "range_patterns": {},
+  "naming_maps": {},
+  "effect_signatures": {
+    "ValhallaVintageVerb": "time_based_effects.reverb",
+    "ValhallaDelay": "time_based_effects.delay",
+    "ValhallaPlate": "time_based_effects.reverb"
+  },
+  "plugin_history": {
+    "ValhallaVintageVerb": {
+      "timestamp": "2025-07-30T13:24:28.935975",
+      "parameter_count": 24
+    },
+    "ValhallaDelay": {
+      "timestamp": "2025-07-30T13:25:11.344540",
+      "parameter_count": 45
+    },
+    "ValhallaPlate": {
+      "timestamp": "2025-07-30T15:48:30.094973",
+      "parameter_count": 19
+    },
+    "ValhallaShimmer": {
+      "timestamp": "2025-07-30T16:04:35.927499",
+      "parameter_count": 20
+    },
+    "iZNectar4SaturationAUHook": {
+      "timestamp": "2025-07-30T22:45:33.883438",
+      "parameter_count": 19
+    },
+    "Krush": {
+      "timestamp": "2025-07-30T22:46:13.146363",
+      "parameter_count": 31
+    }
+  }
+}
