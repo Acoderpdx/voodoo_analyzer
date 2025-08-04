@@ -1,0 +1,8 @@
+{
+  "plugin": "iZNectar4SaturationAUHook",
+  "timestamp": "2025-07-30T22:45:33.884173",
+  "discovery": {
+    "parameters": {
+      "global_bypass": {
+        "name": "global_bypass",
+        "current_value": 

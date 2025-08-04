@@ -1,0 +1,8 @@
+{
+  "plugin": "ValhallaShimmer",
+  "timestamp": "2025-07-30T16:04:35.928332",
+  "discovery": {
+    "parameters": {
+      "bypass": {
+        "name": "bypass",
+        "current_value": 

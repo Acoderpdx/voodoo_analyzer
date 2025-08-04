@@ -1,0 +1,792 @@
+{
+  "plugin": "Nectar 4 Reverb",
+  "timestamp": "2025-07-31T23:40:25.328210",
+  "discovery": {
+    "parameters": {
+      "reverb_width": {
+        "name": "reverb_width",
+        "current_value": 100.0,
+        "type": "numeric",
+        "format": null,
+        "range": [
+          0.0,
+          100.0
+        ],
+        "valid_values": null,
+        "unit": "s",
+        "default": 100.0,
+        "step": 0.1,
+        "display_name": "REVERB: Width",
+        "subtype": "float",
+        "learned_category": "stereo_width"
+      },
+      "reverb_pre_delay_ms": {
+        "name": "reverb_pre_delay_ms",
+        "current_value": 0.0,
+        "type": "numeric",
+        "format": null,
+        "range": [
+          0.0,
+          100.0
+        ],
+        "valid_values": null,
+        "unit": "ms",
+        "default": 0.0,
+        "step": 0.2,
+        "display_name": "REVERB: Pre-Delay",
+        "subtype": "float"
+      },
+      "reverb_saturation": {
+        "name": "reverb_saturation",
+        "current_value": 0.0,
+        "type": "numeric",
+        "format": null,
+        "range": [
+          0.0,
+          100.0
+        ],
+        "valid_values": null,
+        "unit": "s",
+        "default": 0.0,
+        "step": 0.1,
+        "display_name": "REVERB: Saturation",
+        "subtype": "float"
+      },
+      "reverb_low_cutoff_hz": {
+        "name": "reverb_low_cutoff_hz",
+        "current_value": 20.0,
+        "type": "numeric",
+        "format": null,
+        "range": [
+          100.36,
+          1000.0
+        ],
+        "valid_values": null,
+        "unit": "hz",
+        "default": 20.0,
+        "step": 0.98,
+        "display_name": "REVERB: Low Cutoff",
+        "subtype": "float",
+        "learned_category": "filter_cutoff"
+      },
+      "reverb_low_cutoff_slope": {
+        "name": "reverb_low_cutoff_slope",
+        "current_value": "12 dB/oct",
+        "type": "string_list",
+        "format": null,
+        "range": [
+          null,
+          null
+        ],
+        "valid_values": null,
+        "unit": "hz",
+        "default": "12 dB/oct",
+        "step": null,
+        "display_name": "REVERB: Low Cutoff Slope",
+        "num_string_values": 3,
+        "learned_category": "filter_cutoff"
+      },
+      "reverb_high_cutoff_hz": {
+        "name": "reverb_high_cutoff_hz",
+        "current_value": 20000.0,
+        "type": "numeric",
+        "format": null,
+        "range": [
+          9992.0,
+          9992.0
+        ],
+        "valid_values": null,
+        "unit": "hz",
+        "default": 20000.0,
+        "step": 18.0,
+        "display_name": "REVERB: High Cutoff",
+        "subtype": "float",
+        "learned_category": "filter_cutoff"
+      },
+      "reverb_high_cutoff_slope": {
+        "name": "reverb_high_cutoff_slope",
+        "current_value": "12 dB/oct",
+        "type": "string_list",
+        "format": null,
+        "range": [
+          null,
+          null
+        ],
+        "valid_values": null,
+        "unit": "hz",
+        "default": "12 dB/oct",
+        "step": null,
+        "display_name": "REVERB: High Cutoff Slope",
+        "num_string_values": 3,
+        "learned_category": "filter_cutoff"
+      },
+      "reverb_mid_frequency_hz": {
+        "name": "reverb_mid_frequency_hz",
+        "current_value": 1000.0,
+        "type": "numeric",
+        "format": null,
+        "range": [
+          997.1,
+          10000.0
+        ],
+        "valid_values": null,
+        "unit": "hz",
+        "default": 1000.0,
+        "step": 9.85,
+        "display_name": "REVERB: Mid Frequency",
+        "subtype": "float",
+        "learned_category": "frequency"
+      },
+      "reverb_mid_gain_db": {
+        "name": "reverb_mid_gain_db",
+        "current_value": 0.0,
+        "type": "numeric",
+        "format": null,
+        "range": [
+          0.01,
+          10.01
+        ],
+        "valid_values": null,
+        "unit": "s",
+        "default": 0.0,
+        "step": null,
+        "display_name": "REVERB: Mid Gain",
+        "subtype": "float",
+        "learned_category": "gain"
+      },
+      "reverb_mid_q": {
+        "name": "reverb_mid_q",
+        "current_value": 0.71,
+        "type": "numeric",
+        "format": null,
+        "range": [
+          0.5,
+          9.99
+        ],
+        "valid_values": null,
+        "unit": "s",
+        "default": 0.71,
+        "step": null,
+        "display_name": "REVERB: Mid Q",
+        "subtype": "float"
+      },
+      "reverb_bypass": {
+        "name": "reverb_bypass",
+        "current_value": "False",
+        "type": "boolean",
+        "format": null,
+        "range": [
+          false,
+          true
+        ],
+        "valid_values": [
+          false,
+          true
+        ],
+        "unit": "s",
+        "default": "False",
+        "step": 1,
+        "display_name": "REVERB: Bypass"
+      },
+      "reverb_wet_mix": {
+        "name": "reverb_wet_mix",
+        "current_value": 50.0,
+        "type": "numeric",
+        "format": null,
+        "range": [
+          0.0,
+          100.0
+        ],
+        "valid_values": null,
+        "unit": "s",
+        "default": 50.0,
+        "step": 0.1,
+        "display_name": "REVERB: Wet Mix",
+        "subtype": "float",
+        "learned_category": "wet_dry_mix"
+      },
+      "global_bypass": {
+        "name": "global_bypass",
+        "current_value": "False",
+        "type": "boolean",
+        "format": null,
+        "range": [
+          false,
+          true
+        ],
+        "valid_values": [
+          false,
+          true
+        ],
+        "unit": null,
+        "default": "False",
+        "step": 1,
+        "display_name": "GLOBAL: Bypass"
+      },
+      "global_match": {
+        "name": "global_match",
+        "current_value": "False",
+        "type": "boolean",
+        "format": null,
+        "range": [
+          false,
+          true
+        ],
+        "valid_values": [
+          false,
+          true
+        ],
+        "unit": null,
+        "default": "False",
+        "step": 1,
+        "display_name": "GLOBAL: Match"
+      },
+      "input_gain_db": {
+        "name": "input_gain_db",
+        "current_value": 0.0,
+        "type": "numeric",
+        "format": null,
+        "range": [
+          -0.01,
+          10.0
+        ],
+        "valid_values": null,
+        "unit": "db",
+        "default": 0.0,
+        "step": 0.07,
+        "display_name": "INPUT: Gain",
+        "subtype": "float",
+        "learned_category": "gain"
+      },
+      "output_gain_db": {
+        "name": "output_gain_db",
+        "current_value": 0.0,
+        "type": "numeric",
+        "format": null,
+        "range": [
+          -0.01,
+          10.0
+        ],
+        "valid_values": null,
+        "unit": "db",
+        "default": 0.0,
+        "step": 0.07,
+        "display_name": "OUTPUT: Gain",
+        "subtype": "float",
+        "learned_category": "gain"
+      },
+      "output_pan": {
+        "name": "output_pan",
+        "current_value": 0.0,
+        "type": "numeric",
+        "format": null,
+        "range": [
+          0.0,
+          100.0
+        ],
+        "valid_values": null,
+        "unit": null,
+        "default": 0.0,
+        "step": 0.2,
+        "display_name": "OUTPUT: Pan",
+        "subtype": "float"
+      },
+      "output_width": {
+        "name": "output_width",
+        "current_value": 0.0,
+        "type": "numeric",
+        "format": null,
+        "range": [
+          0.0,
+          100.0
+        ],
+        "valid_values": null,
+        "unit": "%",
+        "default": 0.0,
+        "step": 0.2,
+        "display_name": "OUTPUT: Width",
+        "subtype": "float",
+        "learned_category": "stereo_width"
+      },
+      "_metadata": {
+        "plugin_name": "Nectar 4 Reverb",
+        "plugin_path": "/Library/Audio/Plug-Ins/VST3/Nectar 4 Reverb.vst3/",
+        "total_parameters": 17,
+        "discovery_complete": true
+      }
+    },
+    "categorized": {
+      "effect_type": "time_based_effects.reverb",
+      "categories": {
+        "core": {
+          "parameters": [
+            "reverb_pre_delay_ms",
+            "reverb_wet_mix"
+          ],
+          "priority": "critical"
+        },
+        "advanced": {
+          "parameters": [],
+          "priority": "secondary"
+        }
+      },
+      "uncategorized": [
+        "reverb_width",
+        "reverb_saturation",
+        "reverb_low_cutoff_hz",
+        "reverb_low_cutoff_slope",
+        "reverb_high_cutoff_hz",
+        "reverb_high_cutoff_slope",
+        "reverb_mid_frequency_hz",
+        "reverb_mid_gain_db",
+        "reverb_mid_q",
+        "reverb_bypass",
+        "global_bypass",
+        "global_match",
+        "input_gain_db",
+        "output_gain_db",
+        "output_pan",
+        "output_width"
+      ],
+      "parameter_details": {
+        "reverb_width": {
+          "name": "reverb_width",
+          "current_value": 100.0,
+          "type": "numeric",
+          "format": null,
+          "range": [
+            0.0,
+            100.0
+          ],
+          "valid_values": null,
+          "unit": "s",
+          "default": 100.0,
+          "step": 0.1,
+          "display_name": "REVERB: Width",
+          "subtype": "float",
+          "learned_category": "stereo_width"
+        },
+        "reverb_pre_delay_ms": {
+          "name": "reverb_pre_delay_ms",
+          "current_value": 0.0,
+          "type": "numeric",
+          "format": null,
+          "range": [
+            0.0,
+            100.0
+          ],
+          "valid_values": null,
+          "unit": "ms",
+          "default": 0.0,
+          "step": 0.2,
+          "display_name": "REVERB: Pre-Delay",
+          "subtype": "float"
+        },
+        "reverb_saturation": {
+          "name": "reverb_saturation",
+          "current_value": 0.0,
+          "type": "numeric",
+          "format": null,
+          "range": [
+            0.0,
+            100.0
+          ],
+          "valid_values": null,
+          "unit": "s",
+          "default": 0.0,
+          "step": 0.1,
+          "display_name": "REVERB: Saturation",
+          "subtype": "float"
+        },
+        "reverb_low_cutoff_hz": {
+          "name": "reverb_low_cutoff_hz",
+          "current_value": 20.0,
+          "type": "numeric",
+          "format": null,
+          "range": [
+            100.36,
+            1000.0
+          ],
+          "valid_values": null,
+          "unit": "hz",
+          "default": 20.0,
+          "step": 0.98,
+          "display_name": "REVERB: Low Cutoff",
+          "subtype": "float",
+          "learned_category": "filter_cutoff"
+        },
+        "reverb_low_cutoff_slope": {
+          "name": "reverb_low_cutoff_slope",
+          "current_value": "12 dB/oct",
+          "type": "string_list",
+          "format": null,
+          "range": [
+            null,
+            null
+          ],
+          "valid_values": null,
+          "unit": "hz",
+          "default": "12 dB/oct",
+          "step": null,
+          "display_name": "REVERB: Low Cutoff Slope",
+          "num_string_values": 3,
+          "learned_category": "filter_cutoff"
+        },
+        "reverb_high_cutoff_hz": {
+          "name": "reverb_high_cutoff_hz",
+          "current_value": 20000.0,
+          "type": "numeric",
+          "format": null,
+          "range": [
+            9992.0,
+            9992.0
+          ],
+          "valid_values": null,
+          "unit": "hz",
+          "default": 20000.0,
+          "step": 18.0,
+          "display_name": "REVERB: High Cutoff",
+          "subtype": "float",
+          "learned_category": "filter_cutoff"
+        },
+        "reverb_high_cutoff_slope": {
+          "name": "reverb_high_cutoff_slope",
+          "current_value": "12 dB/oct",
+          "type": "string_list",
+          "format": null,
+          "range": [
+            null,
+            null
+          ],
+          "valid_values": null,
+          "unit": "hz",
+          "default": "12 dB/oct",
+          "step": null,
+          "display_name": "REVERB: High Cutoff Slope",
+          "num_string_values": 3,
+          "learned_category": "filter_cutoff"
+        },
+        "reverb_mid_frequency_hz": {
+          "name": "reverb_mid_frequency_hz",
+          "current_value": 1000.0,
+          "type": "numeric",
+          "format": null,
+          "range": [
+            997.1,
+            10000.0
+          ],
+          "valid_values": null,
+          "unit": "hz",
+          "default": 1000.0,
+          "step": 9.85,
+          "display_name": "REVERB: Mid Frequency",
+          "subtype": "float",
+          "learned_category": "frequency"
+        },
+        "reverb_mid_gain_db": {
+          "name": "reverb_mid_gain_db",
+          "current_value": 0.0,
+          "type": "numeric",
+          "format": null,
+          "range": [
+            0.01,
+            10.01
+          ],
+          "valid_values": null,
+          "unit": "s",
+          "default": 0.0,
+          "step": null,
+          "display_name": "REVERB: Mid Gain",
+          "subtype": "float",
+          "learned_category": "gain"
+        },
+        "reverb_mid_q": {
+          "name": "reverb_mid_q",
+          "current_value": 0.71,
+          "type": "numeric",
+          "format": null,
+          "range": [
+            0.5,
+            9.99
+          ],
+          "valid_values": null,
+          "unit": "s",
+          "default": 0.71,
+          "step": null,
+          "display_name": "REVERB: Mid Q",
+          "subtype": "float"
+        },
+        "reverb_bypass": {
+          "name": "reverb_bypass",
+          "current_value": "False",
+          "type": "boolean",
+          "format": null,
+          "range": [
+            false,
+            true
+          ],
+          "valid_values": [
+            false,
+            true
+          ],
+          "unit": "s",
+          "default": "False",
+          "step": 1,
+          "display_name": "REVERB: Bypass"
+        },
+        "reverb_wet_mix": {
+          "name": "reverb_wet_mix",
+          "current_value": 50.0,
+          "type": "numeric",
+          "format": null,
+          "range": [
+            0.0,
+            100.0
+          ],
+          "valid_values": null,
+          "unit": "s",
+          "default": 50.0,
+          "step": 0.1,
+          "display_name": "REVERB: Wet Mix",
+          "subtype": "float",
+          "learned_category": "wet_dry_mix"
+        },
+        "global_bypass": {
+          "name": "global_bypass",
+          "current_value": "False",
+          "type": "boolean",
+          "format": null,
+          "range": [
+            false,
+            true
+          ],
+          "valid_values": [
+            false,
+            true
+          ],
+          "unit": null,
+          "default": "False",
+          "step": 1,
+          "display_name": "GLOBAL: Bypass"
+        },
+        "global_match": {
+          "name": "global_match",
+          "current_value": "False",
+          "type": "boolean",
+          "format": null,
+          "range": [
+            false,
+            true
+          ],
+          "valid_values": [
+            false,
+            true
+          ],
+          "unit": null,
+          "default": "False",
+          "step": 1,
+          "display_name": "GLOBAL: Match"
+        },
+        "input_gain_db": {
+          "name": "input_gain_db",
+          "current_value": 0.0,
+          "type": "numeric",
+          "format": null,
+          "range": [
+            -0.01,
+            10.0
+          ],
+          "valid_values": null,
+          "unit": "db",
+          "default": 0.0,
+          "step": 0.07,
+          "display_name": "INPUT: Gain",
+          "subtype": "float",
+          "learned_category": "gain"
+        },
+        "output_gain_db": {
+          "name": "output_gain_db",
+          "current_value": 0.0,
+          "type": "numeric",
+          "format": null,
+          "range": [
+            -0.01,
+            10.0
+          ],
+          "valid_values": null,
+          "unit": "db",
+          "default": 0.0,
+          "step": 0.07,
+          "display_name": "OUTPUT: Gain",
+          "subtype": "float",
+          "learned_category": "gain"
+        },
+        "output_pan": {
+          "name": "output_pan",
+          "current_value": 0.0,
+          "type": "numeric",
+          "format": null,
+          "range": [
+            0.0,
+            100.0
+          ],
+          "valid_values": null,
+          "unit": null,
+          "default": 0.0,
+          "step": 0.2,
+          "display_name": "OUTPUT: Pan",
+          "subtype": "float"
+        },
+        "output_width": {
+          "name": "output_width",
+          "current_value": 0.0,
+          "type": "numeric",
+          "format": null,
+          "range": [
+            0.0,
+            100.0
+          ],
+          "valid_values": null,
+          "unit": "%",
+          "default": 0.0,
+          "step": 0.2,
+          "display_name": "OUTPUT: Width",
+          "subtype": "float",
+          "learned_category": "stereo_width"
+        },
+        "_metadata": {
+          "plugin_name": "Nectar 4 Reverb",
+          "plugin_path": "/Library/Audio/Plug-Ins/VST3/Nectar 4 Reverb.vst3/",
+          "total_parameters": 17,
+          "discovery_complete": true
+        }
+      }
+    },
+    "validation_results": {
+      "plugin_name": "VST3Plugin",
+      "total_parameters": 19,
+      "validation_results": {
+        "reverb_width": {
+          "parameter": "reverb_width",
+          "current_value": 100.0,
+          "format_tests": {},
+          "working_formats": []
+        },
+        "reverb_pre_delay_ms": {
+          "parameter": "reverb_pre_delay_ms",
+          "current_value": 0.0,
+          "format_tests": {},
+          "working_formats": []
+        },
+        "reverb_saturation": {
+          "parameter": "reverb_saturation",
+          "current_value": 0.0,
+          "format_tests": {},
+          "working_formats": []
+        },
+        "reverb_low_cutoff_hz": {
+          "parameter": "reverb_low_cutoff_hz",
+          "current_value": 20.0,
+          "format_tests": {},
+          "working_formats": []
+        },
+        "reverb_low_cutoff_slope": {
+          "parameter": "reverb_low_cutoff_slope",
+          "current_value": "12 dB/oct",
+          "format_tests": {},
+          "working_formats": []
+        },
+        "reverb_high_cutoff_hz": {
+          "parameter": "reverb_high_cutoff_hz",
+          "current_value": 20000.0,
+          "format_tests": {},
+          "working_formats": []
+        },
+        "reverb_high_cutoff_slope": {
+          "parameter": "reverb_high_cutoff_slope",
+          "current_value": "12 dB/oct",
+          "format_tests": {},
+          "working_formats": []
+        },
+        "reverb_mid_frequency_hz": {
+          "parameter": "reverb_mid_frequency_hz",
+          "current_value": 1000.0,
+          "format_tests": {},
+          "working_formats": []
+        },
+        "reverb_mid_gain_db": {
+          "parameter": "reverb_mid_gain_db",
+          "current_value": 0.0,
+          "format_tests": {},
+          "working_formats": []
+        },
+        "reverb_mid_q": {
+          "parameter": "reverb_mid_q",
+          "current_value": 0.71,
+          "format_tests": {},
+          "working_formats": []
+        },
+        "reverb_bypass": {
+          "parameter": "reverb_bypass",
+          "current_value": "False",
+          "format_tests": {},
+          "working_formats": []
+        },
+        "reverb_wet_mix": {
+          "parameter": "reverb_wet_mix",
+          "current_value": 50.0,
+          "format_tests": {},
+          "working_formats": []
+        },
+        "global_bypass": {
+          "parameter": "global_bypass",
+          "current_value": "False",
+          "format_tests": {},
+          "working_formats": []
+        },
+        "global_match": {
+          "parameter": "global_match",
+          "current_value": "False",
+          "format_tests": {},
+          "working_formats": []
+        },
+        "input_gain_db": {
+          "parameter": "input_gain_db",
+          "current_value": 0.0,
+          "format_tests": {},
+          "working_formats": []
+        },
+        "output_gain_db": {
+          "parameter": "output_gain_db",
+          "current_value": 0.0,
+          "format_tests": {},
+          "working_formats": []
+        },
+        "output_pan": {
+          "parameter": "output_pan",
+          "current_value": 0.0,
+          "format_tests": {},
+          "working_formats": []
+        },
+        "output_width": {
+          "parameter": "output_width",
+          "current_value": 0.0,
+          "format_tests": {},
+          "working_formats": []
+        }
+      },
+      "format_requirements": {},
+      "anomalies": [],
+      "statistics": {
+        "validated": 18,
+        "string_numeric": 0,
+        "numeric": 13,
+        "choice": 0,
+        "boolean": 3
+      }
+    },
+    "effect_type": "time_based_effects.reverb",
+    "format_requirements": {}
+  },
+  "learning_version": "2.0"
+}

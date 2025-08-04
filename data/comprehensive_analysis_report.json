@@ -1,0 +1,110 @@
+{
+  "metadata": {
+    "generated": "2025-08-03T14:29:11.756797",
+    "tool": "Voodoo Analyzer",
+    "version": "2.0"
+  },
+  "summary": {
+    "total_plugins_analyzed": 6,
+    "total_analyses": 7,
+    "failed_loads": 8,
+    "learning_patterns": 11,
+    "effect_types_identified": 0
+  },
+  "plugins": {
+    "ValhallaVintageVerb": {
+      "plugin_name": "ValhallaVintageVerb",
+      "analysis_count": 1,
+      "latest_analysis": "2025-07-30 13:24:28",
+      "parameters_discovered": {},
+      "categories": {},
+      "learning_insights": {},
+      "validation_results": {}
+    },
+    "ValhallaSupermassive": {
+      "plugin_name": "ValhallaSupermassive",
+      "analysis_count": 1,
+      "latest_analysis": "2025-07-31 16:56:47",
+      "parameters_discovered": {},
+      "categories": {},
+      "learning_insights": {},
+      "validation_results": {}
+    },
+    "TAL-Reverb-2": {
+      "plugin_name": "TAL-Reverb-2",
+      "analysis_count": 2,
+      "latest_analysis": "2025-08-03 14:19:14",
+      "parameters_discovered": {},
+      "categories": {},
+      "learning_insights": {},
+      "validation_results": {}
+    },
+    "Nectar 4 Reverb": {
+      "plugin_name": "Nectar 4 Reverb",
+      "analysis_count": 1,
+      "latest_analysis": "2025-07-31 23:40:25",
+      "parameters_discovered": {},
+      "categories": {},
+      "learning_insights": {},
+      "validation_results": {}
+    },
+    "FabFilter Twin 3": {
+      "plugin_name": "FabFilter Twin 3",
+      "analysis_count": 1,
+      "latest_analysis": "2025-07-31 23:27:23",
+      "parameters_discovered": {},
+      "categories": {},
+      "learning_insights": {},
+      "validation_results": {}
+    },
+    "ValhallaPlate": {
+      "plugin_name": "ValhallaPlate",
+      "analysis_count": 1,
+      "latest_analysis": "2025-07-30 15:48:30",
+      "parameters_discovered": {},
+      "categories": {},
+      "learning_insights": {},
+      "validation_results": {}
+    }
+  },
+  "failed_files": [
+    {
+      "file": "/Users/aidanbernard/Downloads/VOODOO VSTS/voodoo_analyzer/data/discoveries/ValhallaFreqEcho_enhanced_20250731_165622.json",
+      "error": "Expecting value: line 8 column 26 (char 185)"
+    },
+    {
+      "file": "/Users/aidanbernard/Downloads/VOODOO VSTS/voodoo_analyzer/data/discoveries/ValhallaVintageVerb_enhanced_20250730_132409.json",
+      "error": "Expecting value: line 299 column 28 (char 15715)"
+    },
+    {
+      "file": "/Users/aidanbernard/Downloads/VOODOO VSTS/voodoo_analyzer/data/discoveries/Nectar 4 Reverb_enhanced_20250731_233536.json",
+      "error": "Expecting value: line 175 column 26 (char 4496)"
+    },
+    {
+      "file": "/Users/aidanbernard/Downloads/VOODOO VSTS/voodoo_analyzer/data/discoveries/iZNectar4SaturationAUHook_enhanced_20250730_224533.json",
+      "error": "Expecting value: line 8 column 26 (char 208)"
+    },
+    {
+      "file": "/Users/aidanbernard/Downloads/VOODOO VSTS/voodoo_analyzer/data/discoveries/ValhallaShimmer_enhanced_20250730_160435.json",
+      "error": "Expecting value: line 8 column 26 (char 184)"
+    },
+    {
+      "file": "/Users/aidanbernard/Downloads/VOODOO VSTS/voodoo_analyzer/data/discoveries/ValhallaVintageVerb_enhanced_20250730_132349.json",
+      "error": "Expecting value: line 50 column 26 (char 1099)"
+    },
+    {
+      "file": "/Users/aidanbernard/Downloads/VOODOO VSTS/voodoo_analyzer/data/discoveries/Krush_enhanced_20250730_224613.json",
+      "error": "Expecting value: line 8 column 26 (char 174)"
+    },
+    {
+      "file": "/Users/aidanbernard/Downloads/VOODOO VSTS/voodoo_analyzer/data/discoveries/Nectar 4 Reverb_enhanced_20250731_232711.json",
+      "error": "Expecting value: line 8 column 26 (char 198)"
+    }
+  ],
+  "effectiveness_metrics": {
+    "total_parameters_discovered": 0,
+    "categorization_rate": 0,
+    "validation_rate": 0,
+    "plugins_with_learning": 6
+  }
+}

@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import Dict, List, Any, Set
 import re
 from datetime import datetime
+from .learning_exporter import SafeJSONEncoder
 
 class PatternLearner:
     """Learns and applies patterns from plugin discoveries"""
@@ -221,7 +222,7 @@ class PatternLearner:
         """Save learned patterns to file"""
         self.patterns_file.parent.mkdir(exist_ok=True)
         with open(self.patterns_file, 'w') as f:
-            json.dump(self.learned_patterns, f, indent=2)
+            json.dump(self.learned_patterns, f, indent=2, cls=SafeJSONEncoder)
     
     def get_learning_stats(self) -> Dict:
         """Get statistics about learned patterns"""

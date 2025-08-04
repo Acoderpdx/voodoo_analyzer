@@ -1,0 +1,286 @@
+{
+  "plugin": "ValhallaVintageVerb",
+  "timestamp": "2025-07-30T13:24:28.936549",
+  "discovery": {
+    "parameters": {
+      "attack": {
+        "type": "numeric",
+        "current_value": "50.0",
+        "min": null,
+        "max": null,
+        "options": null,
+        "format": null,
+        "unit": "ms"
+      },
+      "bassmult": {
+        "type": "numeric",
+        "current_value": "1.5",
+        "min": null,
+        "max": null,
+        "options": null,
+        "format": null,
+        "unit": null
+      },
+      "bassxover": {
+        "type": "numeric",
+        "current_value": "300.0",
+        "min": null,
+        "max": null,
+        "options": null,
+        "format": null,
+        "unit": null
+      },
+      "bypass": {
+        "type": "unknown",
+        "current_value": "False",
+        "min": null,
+        "max": null,
+        "options": null,
+        "format": null,
+        "unit": null
+      },
+      "colormode": {
+        "type": "string",
+        "current_value": "seventies",
+        "min": null,
+        "max": null,
+        "options": null,
+        "format": null,
+        "unit": null
+      },
+      "decay": {
+        "type": "string_numeric",
+        "current_value": "4.00 s",
+        "min": null,
+        "max": null,
+        "options": null,
+        "format": "%.2f s",
+        "unit": "s"
+      },
+      "earlydiffusion": {
+        "type": "numeric",
+        "current_value": "100.0",
+        "min": null,
+        "max": null,
+        "options": null,
+        "format": null,
+        "unit": "%"
+      },
+      "highcut": {
+        "type": "numeric",
+        "current_value": "8000.0",
+        "min": null,
+        "max": null,
+        "options": null,
+        "format": null,
+        "unit": "db"
+      },
+      "highfreq": {
+        "type": "numeric",
+        "current_value": "6000.0",
+        "min": null,
+        "max": null,
+        "options": null,
+        "format": null,
+        "unit": "hz"
+      },
+      "highshelf": {
+        "type": "numeric",
+        "current_value": "-24.0",
+        "min": null,
+        "max": null,
+        "options": null,
+        "format": null,
+        "unit": "db"
+      },
+      "installed_plugins": {
+        "type": "unknown",
+        "current_value": "['/Library/Audio/Plug-Ins/VST3/RX 8 Breath Control.vst3', '/Library/Audio/Plug-Ins/VST3/Omnisphere.vst3', '/Library/Audio/Plug-Ins/VST3/VStation.vst3', '/Library/Audio/Plug-Ins/VST3/Nectar 3.vst3', '/Library/Audio/Plug-Ins/VST3/ValhallaPlate.vst3', '/Library/Audio/Plug-Ins/VST3/Atoms.vst3', '/Library/Audio/Plug-Ins/VST3/ValhallaFreqEcho.vst3', '/Library/Audio/Plug-Ins/VST3/Z3TA+ 2.vst3', '/Library/Audio/Plug-Ins/VST3/WaveShell1-VST3 14.25.vst3', '/Library/Audio/Plug-Ins/VST3/SuperVHS.vst3', '/Library/Audio/Plug-Ins/VST3/Pigments.vst3', '/Library/Audio/Plug-Ins/VST3/Glitch.vst3', '/Library/Audio/Plug-Ins/VST3/HalfTime.vst3', '/Library/Audio/Plug-Ins/VST3/Grind.vst3', '/Library/Audio/Plug-Ins/VST3/trapdrive.vst3', '/Library/Audio/Plug-Ins/VST3/OTT.vst3', '/Library/Audio/Plug-Ins/VST3/WaveShell1-VST3 14.28.vst3', '/Library/Audio/Plug-Ins/VST3/ElectraX.vst3', '/Library/Audio/Plug-Ins/VST3/ConvologyXT.vst3', '/Library/Audio/Plug-Ins/VST3/FKFX KrishnaSynth Legacy.vst3', '/Library/Audio/Plug-Ins/VST3/WaveShell1-VST3 14.12.vst3', '/Library/Audio/Plug-Ins/VST3/ModulAir.vst3', '/Library/Audio/Plug-Ins/VST3/Portal.vst3', '/Library/Audio/Plug-Ins/VST3/FabFilter Twin 3.vst3', '/Library/Audio/Plug-Ins/VST3/MeldaProduction/Pitch Shift/MAutoPitch.vst3', '/Library/Audio/Plug-Ins/VST3/MeldaProduction/Tools/MCCGenerator.vst3', '/Library/Audio/Plug-Ins/VST3/MeldaProduction/Distortion/MBitFun.vst3', '/Library/Audio/Plug-Ins/VST3/MeldaProduction/Reverb/MCharmVerb.vst3', '/Library/Audio/Plug-Ins/VST3/Nectar 4 Reverb.vst3', '/Library/Audio/Plug-Ins/VST3/Zumzet Lite.vst3', '/Library/Audio/Plug-Ins/VST3/Hive.vst3', '/Library/Audio/Plug-Ins/VST3/Krush.vst3', '/Library/Audio/Plug-Ins/VST3/Nectar 4 Gate.vst3', '/Library/Audio/Plug-Ins/VST3/Zebra2.vst3', '/Library/Audio/Plug-Ins/VST3/Nectar 4 Compressor.vst3', '/Library/Audio/Plug-Ins/VST3/Serum.vst3', '/Library/Audio/Plug-Ins/VST3/WaveShell1-VST3 14.15.vst3', '/Library/Audio/Plug-Ins/VST3/Dust.vst3', '/Library/Audio/Plug-Ins/VST3/Dust (fx).vst3', '/Library/Audio/Plug-Ins/VST3/ValhallaShimmer.vst3', '/Library/Audio/Plug-Ins/VST3/Tungsten.vst3', '/Library/Audio/Plug-Ins/VST3/ValhallaSpaceModulator.vst3', '/Library/Audio/Plug-Ins/VST3/CubicPadSynth/Contents/x86_64-win/CubicPadSynth.vst3', '/Library/Audio/Plug-Ins/VST3/WaveShell1-VST3 14.19.vst3', '/Library/Audio/Plug-Ins/VST3/Cesium.vst3', '/Library/Audio/Plug-Ins/VST3/Textures.vst3', '/Library/Audio/Plug-Ins/VST3/Analog Lab V.vst3', '/Library/Audio/Plug-Ins/VST3/SmoothOperator.vst3', '/Library/Audio/Plug-Ins/VST3/Hibernate.vst3', '/Library/Audio/Plug-Ins/VST3/Lofi Keys 2.vst3', '/Library/Audio/Plug-Ins/VST3/T-De-Esser.vst3', '/Library/Audio/Plug-Ins/VST3/WaveShell1-VST3 14.22.vst3', '/Library/Audio/Plug-Ins/VST3/BBC Symphony Orchestra.vst3', '/Library/Audio/Plug-Ins/VST3/Quanta 2.vst3', '/Library/Audio/Plug-Ins/VST3/WaveShell1-VST3 14.18.vst3', '/Library/Audio/Plug-Ins/VST3/DUNE3.vst3', '/Library/Audio/Plug-Ins/VST3/Nectar 4.vst3', '/Library/Audio/Plug-Ins/VST3/Nectar 4 Backer.vst3', '/Library/Audio/Plug-Ins/VST3/ValhallaVintageVerb.vst3', '/Library/Audio/Plug-Ins/VST3/Nectar 4 Breath Control.vst3', '/Library/Audio/Plug-Ins/VST3/Nectar 4 Dimension.vst3', '/Library/Audio/Plug-Ins/VST3/ValhallaSupermassive.vst3', '/Library/Audio/Plug-Ins/VST3/TAIP.vst3', '/Library/Audio/Plug-Ins/VST3/Nectar 4 Equalizer.vst3', '/Library/Audio/Plug-Ins/VST3/Sonic Charge/Synplant.vst3', '/Library/Audio/Plug-Ins/VST3/Sonic Charge/Microtonic Multi.vst3', '/Library/Audio/Plug-Ins/VST3/Sonic Charge/Permut8.vst3', '/Library/Audio/Plug-Ins/VST3/Sonic Charge/Echobode.vst3', '/Library/Audio/Plug-Ins/VST3/Sonic Charge/Bitspeek.vst3', '/Library/Audio/Plug-Ins/VST3/Sonic Charge/Microtonic.vst3', '/Library/Audio/Plug-Ins/VST3/Effectrix2.vst3', '/Library/Audio/Plug-Ins/VST3/Heat Up 3.vst3', '/Library/Audio/Plug-Ins/VST3/WaveShell1-VST3 14.17.vst3', '/Library/Audio/Plug-Ins/VST3/WaveShell1-VST3 14.21.vst3', '/Library/Audio/Plug-Ins/VST3/Crystalline.vst3', '/Library/Audio/Plug-Ins/VST3/codec.vst3', '/Library/Audio/Plug-Ins/VST3/Relay.vst3', '/Library/Audio/Plug-Ins/VST3/Auto-Tune Vocal EQ.vst3', '/Library/Audio/Plug-Ins/VST3/Nectar 4 Pitch.vst3', '/Library/Audio/Plug-Ins/VST3/Auto-Tune Vocal Compressor.vst3', '/Library/Audio/Plug-Ins/VST3/Nectar 4 Saturation.vst3', '/Library/Audio/Plug-Ins/VST3/Surge XT Effects.vst3', '/Library/Audio/Plug-Ins/VST3/L3Reverb/Contents/x86_64-win/L3Reverb.vst3', '/Library/Audio/Plug-Ins/VST3/Surge XT.vst3', '/Library/Audio/Plug-Ins/VST3/Melodyne.vst3', '/Library/Audio/Plug-Ins/VST3/EnvelopedSine/Contents/x86_64-win/EnvelopedSine.vst3', '/Library/Audio/Plug-Ins/VST3/WaveShell1-VST3 14.31.vst3', '/Library/Audio/Plug-Ins/VST3/Roland/SRX KEYBOARDS.vst3', '/Library/Audio/Plug-Ins/VST3/Roland/SRX PIANO 2.vst3', '/Library/Audio/Plug-Ins/VST3/Roland/SRX WORLD.vst3', '/Library/Audio/Plug-Ins/VST3/Roland/SRX ORCHESTRA.vst3', '/Library/Audio/Plug-Ins/VST3/Roland/SRX BRASS.vst3', '/Library/Audio/Plug-Ins/VST3/Roland/SRX ELECTRIC PIANO.vst3', '/Library/Audio/Plug-Ins/VST3/Roland/SRX STRINGS.vst3', '/Library/Audio/Plug-Ins/VST3/Roland/SRX PIANO 1.vst3', '/Library/Audio/Plug-Ins/VST3/Roland/ZENOLOGY.vst3', '/Library/Audio/Plug-Ins/VST3/Roland/SRX DANCE TRAX.vst3', '/Library/Audio/Plug-Ins/VST3/Roland/SRX STUDIO.vst3', '/Library/Audio/Plug-Ins/VST3/TAL-Reverb-2.vst3', '/Library/Audio/Plug-Ins/VST3/BA-1.vst3', '/Library/Audio/Plug-Ins/VST3/LightPadSynth/Contents/x86_64-win/LightPadSynth.vst3', '/Library/Audio/Plug-Ins/VST3/Driftmaker.vst3', '/Library/Audio/Plug-Ins/VST3/Newfangled Audio/Pendulate.vst3', '/Library/Audio/Plug-Ins/VST3/LABS.vst3', '/Library/Audio/Plug-Ins/VST3/Kontakt 7.vst3', '/Library/Audio/Plug-Ins/VST3/SynthMasterPlayer.vst3', '/Library/Audio/Plug-Ins/VST3/ValhallaRoom.vst3', '/Library/Audio/Plug-Ins/VST3/Nexus.vst3', '/Library/Audio/Plug-Ins/VST3/Nectar 4 Delay.vst3', '/Library/Audio/Plug-Ins/VST3/Nectar 4 DeEsser.vst3', '/Library/Audio/Plug-Ins/VST3/Nectar 4 Auto-Level.vst3', '/Library/Audio/Plug-Ins/VST3/SKY_Keys.vst3', '/Library/Audio/Plug-Ins/VST3/Nectar 4 Voices.vst3', '/Library/Audio/Plug-Ins/VST3/ValhallaUberMod.vst3', '/Library/Audio/Plug-Ins/VST3/Transit.vst3', '/Library/Audio/Plug-Ins/VST3/Prophet V3.vst3', '/Library/Audio/Plug-Ins/VST3/ValhallaDelay.vst3', '/Library/Audio/Plug-Ins/VST3/IHNY-2.vst3', '/Users/aidanbernard/Library/Audio/Plug-Ins/VST3/ShaperBox 3.vst3', '/Users/aidanbernard/Library/Audio/Plug-Ins/VST3/VoodooVerb.vst3', '/Users/aidanbernard/Library/Audio/Plug-Ins/VST3/ValhallaVintageVerb.vst3', '/Users/aidanbernard/Library/Audio/Plug-Ins/VST3/ValhallaDelay.vst3']",
+        "min": null,
+        "max": null,
+        "options": null,
+        "format": null,
+        "unit": null
+      },
+      "is_effect": {
+        "type": "numeric",
+        "current_value": "True",
+        "min": null,
+        "max": null,
+        "options": null,
+        "format": null,
+        "unit": null
+      },
+      "is_instrument": {
+        "type": "numeric",
+        "current_value": "False",
+        "min": null,
+        "max": null,
+        "options": null,
+        "format": null,
+        "unit": null
+      },
+      "latediffusion": {
+        "type": "numeric",
+        "current_value": "100.0",
+        "min": null,
+        "max": null,
+        "options": null,
+        "format": null,
+        "unit": "%"
+      },
+      "lowcut": {
+        "type": "numeric",
+        "current_value": "10.0",
+        "min": null,
+        "max": null,
+        "options": null,
+        "format": null,
+        "unit": "db"
+      },
+      "mix": {
+        "type": "numeric",
+        "current_value": "100.0",
+        "min": null,
+        "max": null,
+        "options": null,
+        "format": null,
+        "unit": "%"
+      },
+      "moddepth": {
+        "type": "numeric",
+        "current_value": "38.0",
+        "min": null,
+        "max": null,
+        "options": null,
+        "format": null,
+        "unit": "%"
+      },
+      "modrate": {
+        "type": "numeric",
+        "current_value": "2.53",
+        "min": null,
+        "max": null,
+        "options": null,
+        "format": null,
+        "unit": null
+      },
+      "name": {
+        "type": "string",
+        "current_value": "ValhallaVintageVerb",
+        "min": null,
+        "max": null,
+        "options": null,
+        "format": null,
+        "unit": null
+      },
+      "parameters": {
+        "type": "unknown",
+        "current_value": "{'mix': <pedalboard.AudioProcessorParameter name=\"Mix\" discrete raw_value=1 value=100.0 % range=(0.0, 100.0, 0.1)>, 'predelay': <pedalboard.AudioProcessorParameter name=\"PreDelay\" discrete raw_value=0.25 value=20.00 ms range=(0.0, 500.0, ~0.5850000000000002)>, 'decay': <pedalboard.AudioProcessorParameter name=\"Decay\" discrete raw_value=0.264 value=\"1.00 s\" (817 valid string values)>, 'size': <pedalboard.AudioProcessorParameter name=\"Size\" discrete raw_value=1 value=100.0 % range=(0.0, 100.0, 0.1)>, 'attack': <pedalboard.AudioProcessorParameter name=\"Attack\" discrete raw_value=0.5 value=50.0 % range=(0.0, 100.0, 0.1)>, 'bassmult': <pedalboard.AudioProcessorParameter name=\"BassMult\" discrete raw_value=0.622 value=1.50 X range=(0.25, 4.0, 0.01)>, 'bassxover': <pedalboard.AudioProcessorParameter name=\"BassXover\" discrete raw_value=0.255 value=300 Hz range=(100.0, 2000.0, 10.0)>, 'highshelf': <pedalboard.AudioProcessorParameter name=\"HighShelf\" discrete raw_value=0 value=-24.00 dB range=(-24.0, 0.0, ~0.025)>, 'highfreq': <pedalboard.AudioProcessorParameter name=\"HighFreq\" discrete raw_value=0.5 value=6000 Hz range=(100.0, 20000.0, ~25.0)>, 'earlydiffusion': <pedalboard.AudioProcessorParameter name=\"EarlyDiffusion\" discrete raw_value=1 value=100.0 % range=(0.0, 100.0, 0.1)>, 'latediffusion': <pedalboard.AudioProcessorParameter name=\"LateDiffusion\" discrete raw_value=1 value=100.0 % range=(0.0, 100.0, 0.1)>, 'modrate': <pedalboard.AudioProcessorParameter name=\"ModRate\" discrete raw_value=0.245 value=2.53 Hz range=(0.1, 10.0, 0.01)>, 'moddepth': <pedalboard.AudioProcessorParameter name=\"ModDepth\" discrete raw_value=0.38 value=38.0 % range=(0.0, 100.0, 0.1)>, 'highcut': <pedalboard.AudioProcessorParameter name=\"HighCut\" discrete raw_value=0.59 value=7990 Hz range=(100.0, 20000.0, ~25.0)>, 'lowcut': <pedalboard.AudioProcessorParameter name=\"LowCut\" discrete raw_value=0 value=10 Hz range=(10.0, 1500.0, 10.0)>, 'colormode': <pedalboard.AudioProcessorParameter name=\"ColorMode\" discrete raw_value=0.333333 value=\"seventies\" (3 valid string values)>, 'reverbmode': <pedalboard.AudioProcessorParameter name=\"ReverbMode\" discrete raw_value=0.625 value=\"Nonlin\" (23 valid string values)>, 'bypass': <pedalboard.AudioProcessorParameter name=\"Bypass\" discrete raw_value=0 value=Off boolean (\"False\" and \"True\")>}",
+        "min": null,
+        "max": null,
+        "options": null,
+        "format": null,
+        "unit": null
+      },
+      "predelay": {
+        "type": "numeric",
+        "current_value": "20.0",
+        "min": null,
+        "max": null,
+        "options": null,
+        "format": null,
+        "unit": "ms"
+      },
+      "reverbmode": {
+        "type": "string",
+        "current_value": "Concert Hall",
+        "min": null,
+        "max": null,
+        "options": null,
+        "format": null,
+        "unit": "s"
+      },
+      "size": {
+        "type": "numeric",
+        "current_value": "100.0",
+        "min": null,
+        "max": null,
+        "options": null,
+        "format": null,
+        "unit": null
+      }
+    },
+    "categorized": {
+      "effect_type": "time_based_effects.reverb",
+      "categories": {
+        "core": {
+          "parameters": [
+            "decay",
+            "predelay",
+            "mix"
+          ],
+          "priority": "critical"
+        },
+        "advanced": {
+          "parameters": [
+            "size",
+            "earlydiffusion"
+          ],
+          "priority": "secondary"
+        }
+      },
+      "uncategorized": [
+        "attack",
+        "bassmult",
+        "bassxover",
+        "bypass",
+        "colormode",
+        "highcut",
+        "highfreq",
+        "highshelf",
+        "installed_plugins",
+        "is_effect",
+        "is_instrument",
+        "latediffusion",
+        "lowcut",
+        "moddepth",
+        "modrate",
+        "name",
+        "parameters",
+        "reverbmode"
+      ]
+    },
+    "validation_results": {
+      "plugin_name": "VST3Plugin",
+      "total_parameters": 24,
+      "statistics": {
+        "validated": 23,
+        "string_numeric": 1,
+        "numeric": 16,
+        "choice": 0,
+        "boolean": 0
+      },
+      "format_requirements": {},
+      "anomalies": [
+        {
+          "parameter": "decay",
+          "issue": "Most format tests failed",
+          "failed_formats": [
+            "float",
+            "int",
+            "string_plain",
+            "string_one_decimal",
+            "string_two_decimal",
+            "string_with_unit_space",
+            "string_with_unit_no_space",
+            "string_unit_first"
+          ]
+        }
+      ]
+    },
+    "effect_type": "time_based_effects.reverb",
+    "format_requirements": {}
+  },
+  "learning_version": "2.0"
+}

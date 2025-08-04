@@ -1,0 +1,50 @@
+{
+  "plugin": "ValhallaVintageVerb",
+  "timestamp": "2025-07-30T13:23:49.365651",
+  "discovery": {
+    "parameters": {
+      "attack": {
+        "name": "attack",
+        "current_value": 50.0,
+        "type": "numeric",
+        "format": null,
+        "range": [
+          0.0,
+          100.0
+        ],
+        "valid_values": null,
+        "unit": "ms",
+        "default": 50.0,
+        "subtype": "float"
+      },
+      "bassmult": {
+        "name": "bassmult",
+        "current_value": 1.5,
+        "type": "numeric",
+        "format": null,
+        "range": [
+          0.5,
+          1.0
+        ],
+        "valid_values": null,
+        "unit": null,
+        "default": 1.5,
+        "subtype": "float"
+      },
+      "bassxover": {
+        "name": "bassxover",
+        "current_value": 300.0,
+        "type": "numeric",
+        "format": null,
+        "range": [
+          100.0,
+          1000.0
+        ],
+        "valid_values": null,
+        "unit": null,
+        "default": 300.0,
+        "subtype": "float"
+      },
+      "bypass": {
+        "name": "bypass",
+        "current_value": 

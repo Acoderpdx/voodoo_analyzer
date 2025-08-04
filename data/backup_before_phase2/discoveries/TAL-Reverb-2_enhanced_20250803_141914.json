@@ -1,0 +1,537 @@
+{
+  "plugin": "TAL-Reverb-2",
+  "timestamp": "2025-08-03T14:19:14.275443",
+  "discovery": {
+    "parameters": {
+      "dry": {
+        "name": "dry",
+        "current_value": 0.5,
+        "type": "numeric",
+        "format": null,
+        "range": [
+          0.0,
+          1.0
+        ],
+        "valid_values": null,
+        "unit": null,
+        "default": 0.5,
+        "step": 0.001,
+        "display_name": "dry",
+        "subtype": "float"
+      },
+      "wet": {
+        "name": "wet",
+        "current_value": 0.161,
+        "type": "numeric",
+        "format": null,
+        "range": [
+          0.0,
+          1.0
+        ],
+        "valid_values": null,
+        "unit": null,
+        "default": 0.161,
+        "step": 0.001,
+        "display_name": "wet",
+        "subtype": "float"
+      },
+      "room_size": {
+        "name": "room_size",
+        "current_value": 0.752,
+        "type": "numeric",
+        "format": null,
+        "range": [
+          0.0,
+          1.0
+        ],
+        "valid_values": null,
+        "unit": null,
+        "default": 0.752,
+        "step": 0.001,
+        "display_name": "room size",
+        "subtype": "float"
+      },
+      "pre_delay": {
+        "name": "pre_delay",
+        "current_value": 0.132,
+        "type": "numeric",
+        "format": null,
+        "range": [
+          0.0,
+          1.0
+        ],
+        "valid_values": null,
+        "unit": "ms",
+        "default": 0.132,
+        "step": 0.001,
+        "display_name": "pre delay",
+        "subtype": "float"
+      },
+      "low_shelf_frequency": {
+        "name": "low_shelf_frequency",
+        "current_value": 0.024,
+        "type": "numeric",
+        "format": null,
+        "range": [
+          0.0,
+          1.0
+        ],
+        "valid_values": null,
+        "unit": "hz",
+        "default": 0.024,
+        "step": 0.001,
+        "display_name": "low shelf frequency",
+        "subtype": "float",
+        "learned_category": "frequency"
+      },
+      "high_shelf_frequency": {
+        "name": "high_shelf_frequency",
+        "current_value": 1.0,
+        "type": "numeric",
+        "format": null,
+        "range": [
+          0.0,
+          1.0
+        ],
+        "valid_values": null,
+        "unit": "hz",
+        "default": 1.0,
+        "step": 0.001,
+        "display_name": "high shelf frequency",
+        "subtype": "float",
+        "learned_category": "frequency"
+      },
+      "peak_frequency": {
+        "name": "peak_frequency",
+        "current_value": 0.492,
+        "type": "numeric",
+        "format": null,
+        "range": [
+          0.0,
+          1.0
+        ],
+        "valid_values": null,
+        "unit": "hz",
+        "default": 0.492,
+        "step": 0.001,
+        "display_name": "peak frequency",
+        "subtype": "float",
+        "learned_category": "frequency"
+      },
+      "low_shelf_gain": {
+        "name": "low_shelf_gain",
+        "current_value": 1.0,
+        "type": "numeric",
+        "format": null,
+        "range": [
+          0.0,
+          1.0
+        ],
+        "valid_values": null,
+        "unit": "db",
+        "default": 1.0,
+        "step": 0.001,
+        "display_name": "low shelf gain",
+        "subtype": "float",
+        "learned_category": "gain"
+      },
+      "high_shelf_gain": {
+        "name": "high_shelf_gain",
+        "current_value": 1.0,
+        "type": "numeric",
+        "format": null,
+        "range": [
+          0.0,
+          1.0
+        ],
+        "valid_values": null,
+        "unit": "db",
+        "default": 1.0,
+        "step": 0.001,
+        "display_name": "high shelf gain",
+        "subtype": "float",
+        "learned_category": "gain"
+      },
+      "peak_gain": {
+        "name": "peak_gain",
+        "current_value": 1.0,
+        "type": "numeric",
+        "format": null,
+        "range": [
+          0.0,
+          1.0
+        ],
+        "valid_values": null,
+        "unit": "db",
+        "default": 1.0,
+        "step": 0.001,
+        "display_name": "peak gain",
+        "subtype": "float",
+        "learned_category": "gain"
+      },
+      "stereo": {
+        "name": "stereo",
+        "current_value": 1.0,
+        "type": "numeric",
+        "format": null,
+        "range": [
+          0.0,
+          1.0
+        ],
+        "valid_values": null,
+        "unit": null,
+        "default": 1.0,
+        "step": 0.001,
+        "display_name": "stereo",
+        "subtype": "float"
+      },
+      "stereo_input": {
+        "name": "stereo_input",
+        "current_value": 0.0,
+        "type": "numeric",
+        "format": null,
+        "range": [
+          0.0,
+          1.0
+        ],
+        "valid_values": null,
+        "unit": null,
+        "default": 0.0,
+        "step": 0.001,
+        "display_name": "stereo input",
+        "subtype": "float"
+      },
+      "_metadata": {
+        "plugin_name": "TAL-Reverb-2",
+        "plugin_path": "/Library/Audio/Plug-Ins/Components/TAL-Reverb-2.component/",
+        "total_parameters": 11,
+        "discovery_complete": true
+      }
+    },
+    "categorized": {
+      "effect_type": "time_based_effects.reverb",
+      "categories": {
+        "core": {
+          "parameters": [
+            "pre_delay"
+          ],
+          "priority": "critical"
+        },
+        "advanced": {
+          "parameters": [
+            "room_size"
+          ],
+          "priority": "secondary"
+        }
+      },
+      "uncategorized": [
+        "dry",
+        "wet",
+        "low_shelf_frequency",
+        "high_shelf_frequency",
+        "peak_frequency",
+        "low_shelf_gain",
+        "high_shelf_gain",
+        "peak_gain",
+        "stereo",
+        "stereo_input"
+      ],
+      "parameter_details": {
+        "dry": {
+          "name": "dry",
+          "current_value": 0.5,
+          "type": "numeric",
+          "format": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "valid_values": null,
+          "unit": null,
+          "default": 0.5,
+          "step": 0.001,
+          "display_name": "dry",
+          "subtype": "float"
+        },
+        "wet": {
+          "name": "wet",
+          "current_value": 0.161,
+          "type": "numeric",
+          "format": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "valid_values": null,
+          "unit": null,
+          "default": 0.161,
+          "step": 0.001,
+          "display_name": "wet",
+          "subtype": "float"
+        },
+        "room_size": {
+          "name": "room_size",
+          "current_value": 0.752,
+          "type": "numeric",
+          "format": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "valid_values": null,
+          "unit": null,
+          "default": 0.752,
+          "step": 0.001,
+          "display_name": "room size",
+          "subtype": "float"
+        },
+        "pre_delay": {
+          "name": "pre_delay",
+          "current_value": 0.132,
+          "type": "numeric",
+          "format": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "valid_values": null,
+          "unit": "ms",
+          "default": 0.132,
+          "step": 0.001,
+          "display_name": "pre delay",
+          "subtype": "float"
+        },
+        "low_shelf_frequency": {
+          "name": "low_shelf_frequency",
+          "current_value": 0.024,
+          "type": "numeric",
+          "format": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "valid_values": null,
+          "unit": "hz",
+          "default": 0.024,
+          "step": 0.001,
+          "display_name": "low shelf frequency",
+          "subtype": "float",
+          "learned_category": "frequency"
+        },
+        "high_shelf_frequency": {
+          "name": "high_shelf_frequency",
+          "current_value": 1.0,
+          "type": "numeric",
+          "format": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "valid_values": null,
+          "unit": "hz",
+          "default": 1.0,
+          "step": 0.001,
+          "display_name": "high shelf frequency",
+          "subtype": "float",
+          "learned_category": "frequency"
+        },
+        "peak_frequency": {
+          "name": "peak_frequency",
+          "current_value": 0.492,
+          "type": "numeric",
+          "format": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "valid_values": null,
+          "unit": "hz",
+          "default": 0.492,
+          "step": 0.001,
+          "display_name": "peak frequency",
+          "subtype": "float",
+          "learned_category": "frequency"
+        },
+        "low_shelf_gain": {
+          "name": "low_shelf_gain",
+          "current_value": 1.0,
+          "type": "numeric",
+          "format": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "valid_values": null,
+          "unit": "db",
+          "default": 1.0,
+          "step": 0.001,
+          "display_name": "low shelf gain",
+          "subtype": "float",
+          "learned_category": "gain"
+        },
+        "high_shelf_gain": {
+          "name": "high_shelf_gain",
+          "current_value": 1.0,
+          "type": "numeric",
+          "format": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "valid_values": null,
+          "unit": "db",
+          "default": 1.0,
+          "step": 0.001,
+          "display_name": "high shelf gain",
+          "subtype": "float",
+          "learned_category": "gain"
+        },
+        "peak_gain": {
+          "name": "peak_gain",
+          "current_value": 1.0,
+          "type": "numeric",
+          "format": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "valid_values": null,
+          "unit": "db",
+          "default": 1.0,
+          "step": 0.001,
+          "display_name": "peak gain",
+          "subtype": "float",
+          "learned_category": "gain"
+        },
+        "stereo": {
+          "name": "stereo",
+          "current_value": 1.0,
+          "type": "numeric",
+          "format": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "valid_values": null,
+          "unit": null,
+          "default": 1.0,
+          "step": 0.001,
+          "display_name": "stereo",
+          "subtype": "float"
+        },
+        "stereo_input": {
+          "name": "stereo_input",
+          "current_value": 0.0,
+          "type": "numeric",
+          "format": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "valid_values": null,
+          "unit": null,
+          "default": 0.0,
+          "step": 0.001,
+          "display_name": "stereo input",
+          "subtype": "float"
+        },
+        "_metadata": {
+          "plugin_name": "TAL-Reverb-2",
+          "plugin_path": "/Library/Audio/Plug-Ins/Components/TAL-Reverb-2.component/",
+          "total_parameters": 11,
+          "discovery_complete": true
+        }
+      }
+    },
+    "validation_results": {
+      "plugin_name": "AudioUnitPlugin",
+      "total_parameters": 13,
+      "validation_results": {
+        "dry": {
+          "parameter": "dry",
+          "current_value": 0.5,
+          "format_tests": {},
+          "working_formats": []
+        },
+        "wet": {
+          "parameter": "wet",
+          "current_value": 0.161,
+          "format_tests": {},
+          "working_formats": []
+        },
+        "room_size": {
+          "parameter": "room_size",
+          "current_value": 0.752,
+          "format_tests": {},
+          "working_formats": []
+        },
+        "pre_delay": {
+          "parameter": "pre_delay",
+          "current_value": 0.132,
+          "format_tests": {},
+          "working_formats": []
+        },
+        "low_shelf_frequency": {
+          "parameter": "low_shelf_frequency",
+          "current_value": 0.024,
+          "format_tests": {},
+          "working_formats": []
+        },
+        "high_shelf_frequency": {
+          "parameter": "high_shelf_frequency",
+          "current_value": 1.0,
+          "format_tests": {},
+          "working_formats": []
+        },
+        "peak_frequency": {
+          "parameter": "peak_frequency",
+          "current_value": 0.492,
+          "format_tests": {},
+          "working_formats": []
+        },
+        "low_shelf_gain": {
+          "parameter": "low_shelf_gain",
+          "current_value": 1.0,
+          "format_tests": {},
+          "working_formats": []
+        },
+        "high_shelf_gain": {
+          "parameter": "high_shelf_gain",
+          "current_value": 1.0,
+          "format_tests": {},
+          "working_formats": []
+        },
+        "peak_gain": {
+          "parameter": "peak_gain",
+          "current_value": 1.0,
+          "format_tests": {},
+          "working_formats": []
+        },
+        "stereo": {
+          "parameter": "stereo",
+          "current_value": 1.0,
+          "format_tests": {},
+          "working_formats": []
+        },
+        "stereo_input": {
+          "parameter": "stereo_input",
+          "current_value": 0.0,
+          "format_tests": {},
+          "working_formats": []
+        }
+      },
+      "format_requirements": {},
+      "anomalies": [],
+      "statistics": {
+        "validated": 12,
+        "string_numeric": 0,
+        "numeric": 12,
+        "choice": 0,
+        "boolean": 0
+      }
+    },
+    "effect_type": "time_based_effects.reverb",
+    "format_requirements": {}
+  },
+  "learning_version": "2.0"
+}

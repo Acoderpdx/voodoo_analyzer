@@ -13,7 +13,7 @@ from core import UniversalPluginDiscovery, ParameterCategorizer, ResearchValidat
 from core.pattern_learner import PatternLearner
 from core.validator_enhanced import EnhancedValidator
 from core.learning_exporter import LearningExporter
-from ui.components import ParameterInspector, LearningDashboard
+from ui.components import ParameterInspector, LearningDashboard, HistoryViewer
 
 class PluginAnalyzerApp:
     """Main application window"""
@@ -58,6 +58,11 @@ class PluginAnalyzerApp:
         tools_menu.add_separator()
         tools_menu.add_command(label="Generate Learning Report", command=self.generate_learning_report)
         tools_menu.add_command(label="View Learning Stats", command=self.view_learning_stats)
+        
+        # History menu
+        history_menu = tk.Menu(menubar, tearoff=0)
+        menubar.add_cascade(label="History", menu=history_menu)
+        history_menu.add_command(label="View Analysis History", command=self.show_history)
     
     def _create_main_layout(self):
         """Create the main application layout"""
@@ -99,6 +104,12 @@ class PluginAnalyzerApp:
                                command=lambda: self.load_plugin(),
                                style='Accent.TButton')
         browse_btn.pack(fill=tk.X, padx=5, pady=5)
+        
+        # History button - prominent
+        history_btn = ttk.Button(load_frame, text="View History / Logs", 
+                               command=self.show_history,
+                               style='Accent.TButton')
+        history_btn.pack(fill=tk.X, padx=5, pady=5)
         
         # Separator
         ttk.Separator(load_frame, orient=tk.HORIZONTAL).pack(fill=tk.X, padx=5, pady=5)
@@ -472,6 +483,11 @@ class PluginAnalyzerApp:
             text.insert(tk.END, "-"*40 + "\n")
             for plugin, info in list(self.pattern_learner.learned_patterns['plugin_history'].items())[-5:]:
                 text.insert(tk.END, f"• {plugin}: {info['parameter_count']} parameters\n")
+    
+    def show_history(self):
+        """Show the history viewer window"""
+        history_window = HistoryViewer(self.root, app_instance=self)
+        history_window.focus()
     
     def run(self):
         """Run the application"""

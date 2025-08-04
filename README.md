@@ -31,8 +31,7 @@ pip install -r requirements.txt
 
 ### GUI Application
 ```bash
-python main.py
-# or
+c# or
 ./run.sh
 ```
 

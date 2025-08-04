@@ -3,9 +3,26 @@ Export discovery results for Stage 2 automated recording
 """
 
 import json
+import numpy as np
 from datetime import datetime
 from pathlib import Path
 from typing import Dict, Any, List
+
+class SafeJSONEncoder(json.JSONEncoder):
+    """Handle special values in JSON export"""
+    def default(self, obj):
+        if isinstance(obj, np.ndarray):
+            return obj.tolist()
+        elif isinstance(obj, (np.float32, np.float64)):
+            if np.isnan(obj) or np.isinf(obj):
+                return None
+            return float(obj)
+        elif isinstance(obj, (np.int32, np.int64)):
+            return int(obj)
+        elif hasattr(obj, '__dict__'):
+            # Don't serialize complex objects
+            return str(obj)
+        return super().default(obj)
 
 class DiscoveryExporter:
     """Export parameter discoveries in various formats"""
@@ -36,14 +53,17 @@ class DiscoveryExporter:
             'recording_config': self._generate_recording_config(parameters, categorized)
         }
         
+        # Clean data before export
+        export_data = self._clean_export_data(export_data)
+        
         # Generate filename
         timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
         filename = f"{plugin_name}_{timestamp}_discovery.json"
         filepath = self.export_dir / filename
         
-        # Write file
+        # Write with safe encoder
         with open(filepath, 'w') as f:
-            json.dump(export_data, f, indent=2, default=str)
+            json.dump(export_data, f, indent=2, cls=SafeJSONEncoder)
         
         return str(filepath)
     
@@ -88,3 +108,18 @@ class DiscoveryExporter:
             ]
         else:
             return [param_info.get('current_value', 0)]
+    
+    def _clean_export_data(self, data):
+        """Remove problematic data before export"""
+        if isinstance(data, dict):
+            cleaned = {}
+            for k, v in data.items():
+                # Skip system parameters
+                if k in ['installed_plugins', 'parameters', 'preset_data']:
+                    continue
+                cleaned[k] = self._clean_export_data(v)
+            return cleaned
+        elif isinstance(data, list):
+            return [self._clean_export_data(item) for item in data]
+        else:
+            return data

@@ -2,9 +2,54 @@
 Export learning data and patterns for analysis
 """
 import json
+import numpy as np
 from datetime import datetime
 from pathlib import Path
 from typing import Dict, List, Any
+
+
+class SafeJSONEncoder(json.JSONEncoder):
+    """Custom JSON encoder that handles non-serializable objects"""
+    
+    def default(self, obj):
+        # Handle numpy types
+        if isinstance(obj, np.ndarray):
+            return obj.tolist()
+        elif isinstance(obj, (np.float32, np.float64)):
+            if np.isnan(obj) or np.isinf(obj):
+                return None
+            return float(obj)
+        elif isinstance(obj, (np.int32, np.int64)):
+            return int(obj)
+        
+        # Handle WeakTypeWrapper and other special types
+        type_name = type(obj).__name__
+        
+        if type_name == 'WeakTypeWrapper':
+            # Convert to string representation
+            return str(obj)
+        
+        # Handle other common non-serializable types
+        if hasattr(obj, '__dict__'):
+            # Try to extract serializable attributes
+            try:
+                return {
+                    '_type': type_name,
+                    '_value': str(obj),
+                    '_repr': repr(obj)
+                }
+            except:
+                return str(obj)
+        
+        # Handle numpy types
+        if 'numpy' in str(type(obj)):
+            return obj.tolist() if hasattr(obj, 'tolist') else float(obj)
+        
+        # For anything else, convert to string
+        try:
+            return super().default(obj)
+        except TypeError:
+            return str(obj)
 
 class LearningExporter:
     """Export learned patterns and discoveries"""
@@ -33,12 +78,12 @@ class LearningExporter:
         report_path = self.discoveries_dir / f'learning_report_{datetime.now().strftime("%Y%m%d_%H%M%S")}.json'
         
         with open(report_path, 'w') as f:
-            json.dump(report, f, indent=2)
+            json.dump(report, f, indent=2, cls=SafeJSONEncoder)
         
         # Also save a "latest" copy for easy access
         latest_path = self.discoveries_dir / 'learning_report_latest.json'
         with open(latest_path, 'w') as f:
-            json.dump(report, f, indent=2)
+            json.dump(report, f, indent=2, cls=SafeJSONEncoder)
         
         return str(report_path)
     
@@ -225,7 +270,7 @@ class LearningExporter:
         filepath = self.discoveries_dir / filename
         
         with open(filepath, 'w') as f:
-            json.dump(enhanced_data, f, indent=2)
+            json.dump(enhanced_data, f, indent=2, cls=SafeJSONEncoder)
         
         return str(filepath)
     

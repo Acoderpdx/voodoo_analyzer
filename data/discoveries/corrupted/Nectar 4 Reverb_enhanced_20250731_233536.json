@@ -1,0 +1,175 @@
+{
+  "plugin": "Nectar 4 Reverb",
+  "timestamp": "2025-07-31T23:35:36.141314",
+  "discovery": {
+    "parameters": {
+      "reverb_width": {
+        "name": "reverb_width",
+        "current_value": 100.0,
+        "type": "numeric",
+        "format": null,
+        "range": [
+          0.0,
+          100.0
+        ],
+        "valid_values": null,
+        "unit": "s",
+        "default": 100.0,
+        "step": 0.1,
+        "display_name": "REVERB: Width",
+        "subtype": "float",
+        "learned_category": "stereo_width"
+      },
+      "reverb_pre_delay_ms": {
+        "name": "reverb_pre_delay_ms",
+        "current_value": 0.0,
+        "type": "numeric",
+        "format": null,
+        "range": [
+          0.0,
+          100.0
+        ],
+        "valid_values": null,
+        "unit": "ms",
+        "default": 0.0,
+        "step": 0.2,
+        "display_name": "REVERB: Pre-Delay",
+        "subtype": "float"
+      },
+      "reverb_saturation": {
+        "name": "reverb_saturation",
+        "current_value": 0.0,
+        "type": "numeric",
+        "format": null,
+        "range": [
+          0.0,
+          100.0
+        ],
+        "valid_values": null,
+        "unit": "s",
+        "default": 0.0,
+        "step": 0.1,
+        "display_name": "REVERB: Saturation",
+        "subtype": "float"
+      },
+      "reverb_low_cutoff_hz": {
+        "name": "reverb_low_cutoff_hz",
+        "current_value": 20.0,
+        "type": "numeric",
+        "format": null,
+        "range": [
+          100.36,
+          1000.0
+        ],
+        "valid_values": null,
+        "unit": "hz",
+        "default": 20.0,
+        "step": 0.98,
+        "display_name": "REVERB: Low Cutoff",
+        "subtype": "float",
+        "learned_category": "filter_cutoff"
+      },
+      "reverb_low_cutoff_slope": {
+        "name": "reverb_low_cutoff_slope",
+        "current_value": "12 dB/oct",
+        "type": "string_list",
+        "format": null,
+        "range": [
+          null,
+          null
+        ],
+        "valid_values": null,
+        "unit": "hz",
+        "default": "12 dB/oct",
+        "step": null,
+        "display_name": "REVERB: Low Cutoff Slope",
+        "num_string_values": 3,
+        "learned_category": "filter_cutoff"
+      },
+      "reverb_high_cutoff_hz": {
+        "name": "reverb_high_cutoff_hz",
+        "current_value": 20000.0,
+        "type": "numeric",
+        "format": null,
+        "range": [
+          9992.0,
+          9992.0
+        ],
+        "valid_values": null,
+        "unit": "hz",
+        "default": 20000.0,
+        "step": 18.0,
+        "display_name": "REVERB: High Cutoff",
+        "subtype": "float",
+        "learned_category": "filter_cutoff"
+      },
+      "reverb_high_cutoff_slope": {
+        "name": "reverb_high_cutoff_slope",
+        "current_value": "12 dB/oct",
+        "type": "string_list",
+        "format": null,
+        "range": [
+          null,
+          null
+        ],
+        "valid_values": null,
+        "unit": "hz",
+        "default": "12 dB/oct",
+        "step": null,
+        "display_name": "REVERB: High Cutoff Slope",
+        "num_string_values": 3,
+        "learned_category": "filter_cutoff"
+      },
+      "reverb_mid_frequency_hz": {
+        "name": "reverb_mid_frequency_hz",
+        "current_value": 1000.0,
+        "type": "numeric",
+        "format": null,
+        "range": [
+          997.1,
+          10000.0
+        ],
+        "valid_values": null,
+        "unit": "hz",
+        "default": 1000.0,
+        "step": 9.85,
+        "display_name": "REVERB: Mid Frequency",
+        "subtype": "float",
+        "learned_category": "frequency"
+      },
+      "reverb_mid_gain_db": {
+        "name": "reverb_mid_gain_db",
+        "current_value": 0.0,
+        "type": "numeric",
+        "format": null,
+        "range": [
+          0.01,
+          10.01
+        ],
+        "valid_values": null,
+        "unit": "s",
+        "default": 0.0,
+        "step": null,
+        "display_name": "REVERB: Mid Gain",
+        "subtype": "float",
+        "learned_category": "gain"
+      },
+      "reverb_mid_q": {
+        "name": "reverb_mid_q",
+        "current_value": 0.71,
+        "type": "numeric",
+        "format": null,
+        "range": [
+          0.5,
+          9.99
+        ],
+        "valid_values": null,
+        "unit": "s",
+        "default": 0.71,
+        "step": null,
+        "display_name": "REVERB: Mid Q",
+        "subtype": "float"
+      },
+      "reverb_bypass": {
+        "name": "reverb_bypass",
+        "current_value": 

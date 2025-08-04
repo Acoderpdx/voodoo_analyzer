@@ -13,7 +13,7 @@ class EnhancedValidator:
         self.logger = logging.getLogger(self.__class__.__name__)
     
     def validate_parameter_format(self, param_name: str, param_info: Dict) -> Dict:
-        """Test which formats actually work for a parameter"""
+        """Test which formats actually work"""
         results = {
             'parameter': param_name,
             'current_value': param_info.get('current_value'),
@@ -21,17 +21,24 @@ class EnhancedValidator:
             'working_formats': []
         }
         
-        # For string_numeric parameters, test various formats
-        if param_info.get('type') == 'string_numeric':
-            test_value = 10.0  # Base test value
+        # Only test string_numeric parameters
+        if param_info.get('type') != 'string_numeric':
+            return results
+        
+        # Save original value
+        original_value = None
+        try:
+            original_value = getattr(self.plugin, param_name)
+        except:
+            return results
+        
+        # Test numeric value from current string
+        import re
+        numeric_match = re.search(r'([\d.]+)', str(param_info.get('current_value', '')))
+        if numeric_match:
+            test_value = float(numeric_match.group(1))
             
-            # Adjust test value based on parameter range
-            if 'min' in param_info and 'max' in param_info:
-                # Use a value in the middle of the range
-                test_value = (param_info['min'] + param_info['max']) / 2
-            
-            unit = param_info.get('unit', '')
-            
+            # Comprehensive format tests
             test_formats = [
                 ('float', test_value),
                 ('int', int(test_value)),
@@ -40,28 +47,24 @@ class EnhancedValidator:
                 ('string_two_decimal', f"{test_value:.2f}"),
             ]
             
-            # Add unit-based formats if unit is known
+            # Add unit-based tests if unit detected
+            unit = param_info.get('unit', '')
             if unit:
                 test_formats.extend([
                     ('string_with_unit_space', f"{test_value:.2f} {unit}"),
                     ('string_with_unit_no_space', f"{test_value:.2f}{unit}"),
-                    ('string_unit_first', f"{unit} {test_value:.2f}"),
+                    ('string_one_decimal_unit', f"{test_value:.1f} {unit}"),
                 ])
             
-            # Store original value
-            try:
-                original_value = getattr(self.plugin, param_name)
-            except:
-                original_value = None
-            
+            # Test each format
             for format_name, test_val in test_formats:
                 try:
                     setattr(self.plugin, param_name, test_val)
                     actual = getattr(self.plugin, param_name)
                     
-                    # Check if the value was accepted
+                    # Check if it worked
                     success = True
-                    exact_match = str(test_val) == str(actual)
+                    exact_match = str(test_val).strip() == str(actual).strip()
                     
                     results['format_tests'][format_name] = {
                         'success': success,
@@ -78,21 +81,12 @@ class EnhancedValidator:
                         'success': False,
                         'error': str(e)
                     }
-            
-            # Restore original value
-            if original_value is not None:
-                try:
-                    setattr(self.plugin, param_name, original_value)
-                except:
-                    self.logger.warning(f"Could not restore original value for {param_name}")
         
-        # For numeric parameters, test edge cases
-        elif param_info.get('type') in ['float', 'int']:
-            results['format_tests']['numeric'] = self._validate_numeric_parameter(param_name, param_info)
-        
-        # For choice parameters, validate options
-        elif param_info.get('type') == 'choice':
-            results['format_tests']['choices'] = self._validate_choice_parameter(param_name, param_info)
+        # Restore original
+        try:
+            setattr(self.plugin, param_name, original_value)
+        except:
+            pass
         
         return results
     

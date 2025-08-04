@@ -1,0 +1,8 @@
+{
+  "plugin": "Krush",
+  "timestamp": "2025-07-30T22:46:13.146816",
+  "discovery": {
+    "parameters": {
+      "bypass": {
+        "name": "bypass",
+        "current_value": 

@@ -1,0 +1,1 @@
+# Plugins that need re-analysis\n# Run analyze_new_plugin.py for each\n\nFabFilter Twin 3\nKrush\nNectar 4 Reverb\nTAL-Reverb-2\nValhallaFreqEcho\nValhallaShimmer\nValhallaVintageVerb\niZNectar4SaturationAUHook\n

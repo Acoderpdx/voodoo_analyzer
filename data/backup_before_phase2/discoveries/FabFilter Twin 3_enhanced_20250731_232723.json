@@ -1,0 +1,35 @@
+{
+  "plugin": "FabFilter Twin 3",
+  "timestamp": "2025-07-31T23:27:23.791778",
+  "discovery": {
+    "parameters": {},
+    "categorized": {
+      "effect_type": "frequency_effects.filter",
+      "categories": {
+        "core": {
+          "parameters": [],
+          "priority": "critical"
+        }
+      },
+      "uncategorized": [],
+      "parameter_details": {}
+    },
+    "validation_results": {
+      "plugin_name": "NoneType",
+      "total_parameters": 0,
+      "validation_results": {},
+      "format_requirements": {},
+      "anomalies": [],
+      "statistics": {
+        "validated": 0,
+        "string_numeric": 0,
+        "numeric": 0,
+        "choice": 0,
+        "boolean": 0
+      }
+    },
+    "effect_type": "frequency_effects.filter",
+    "format_requirements": {}
+  },
+  "learning_version": "2.0"
+}
